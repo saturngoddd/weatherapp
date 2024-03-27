@@ -26,7 +26,6 @@ function App() {
     }
   }, [isSuccess, isError, isFetching]);
   const { data: hourlyAndDailtyData } = useGetWeatherByHoursAndDailyQuery(data);
-
   return (
     <div className="App">
       <div className="container">

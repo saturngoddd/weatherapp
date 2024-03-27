@@ -13,5 +13,6 @@ body {
 .flex {
   margin-top: 24px;
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 10px;
 }

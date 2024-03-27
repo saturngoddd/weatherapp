@@ -8,13 +8,13 @@ import {
 } from "./services/weatherApi";
 import { LineChart } from "./components/LineChart";
 import Menu from "./components/Menu";
+import DailyForecast from "./components/DailyForecast";
 
 function App() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [city, setCity] = useState("Bishkek");
+  const [city, setCity] = useState("Dubai");
   const { data, isSuccess, isError, isFetching } =
     useGetWeatherByCityQuery(city);
-  const condition = data?.weather[0].main;
   useEffect(() => {
     if (!isFetching) {
       if (isSuccess) {
@@ -25,8 +25,8 @@ function App() {
       }
     }
   }, [isSuccess, isError, isFetching]);
-  console.log(condition);
-  // const { data: hourlyData } = useGetWeatherByHoursAndDailyQuery(data);
+  const { data: hourlyAndDailtyData } = useGetWeatherByHoursAndDailyQuery(data);
+
   return (
     <div className="App">
       <div className="container">
@@ -39,7 +39,8 @@ function App() {
         />
         <div className="flex">
           <Menu />
-          {/* <LineChart hourlyData={hourlyData} /> */}
+          <LineChart hourlyData={hourlyAndDailtyData} />
+          <DailyForecast dailyData={hourlyAndDailtyData} />
         </div>
       </div>
     </div>

@@ -189,17 +189,16 @@ export const LineChart = ({ hourlyData }) => {
   return (
     <div
       style={{
-        height: "25%",
+        height: "30%",
         background: "#DEAB4D",
-        width: "80%",
-        margin: "0 auto",
+        width: "60%",
         borderRadius: "40px",
       }}
     >
       <Line
         data={data}
         width={1150}
-        height={300}
+        height={350}
         options={options}
         plugins={plugins}
       ></Line>

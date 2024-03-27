@@ -1,7 +1,14 @@
 .daily {
+  margin: 0 auto;
   padding: 30px 20px;
-  width: 324px;
+  width: 30%;
   background: #deab4d;
+}
+.item {
+  cursor: pointer;
+}
+.item:hover .item-text {
+  color: gold;
 }
 .item-text {
   text-align: center;
@@ -34,6 +41,7 @@
 }
 .daily-items {
   display: flex;
+  gap: 5px;
   align-items: start;
 }
 .daily-items-label {
@@ -45,4 +53,18 @@
   font-size: 18px;
   font-weight: 500;
   text-align: left;
+}
+@media (max-width: 1220px) {
+  .daily {
+    width: 25%;
+  }
+}
+
+@media (max-width: 860px) {
+  .daily {
+    width: 90%;
+  }
+  .daily-content {
+    display: none;
+  }
 }

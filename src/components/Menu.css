@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 99px;
   padding: 20px 0;
-  width: 105px;
+  width: 10%;
   background: #deab4d;
   border-radius: 40px;
 }
@@ -13,11 +13,29 @@
   gap: 22px;
 }
 .menu-avatar {
+  width: 55%;
   margin: 0 auto;
 }
 .menu-icon {
+  width: 40%;
   margin: 0 auto;
 }
 .menu-weather-text {
   text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .menu {
+    width: 8%;
+  }
+}
+@media (max-width: 1000px) {
+  .menu-weather-text {
+    font-size: 12px;
+  }
+}
+@media (max-width: 860px) {
+  .menu {
+    display: none;
+  }
 }

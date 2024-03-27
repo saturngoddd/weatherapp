@@ -198,7 +198,7 @@ export const LineChart = ({ hourlyData }) => {
       <Line
         data={data}
         width={1150}
-        height={350}
+        height={480}
         options={options}
         plugins={plugins}
       ></Line>

@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import "./App.css";
+import { WeatherInfo } from "./components/WeatherInfo";
+import { SearchModal } from "./components/searchModal";
+import {
+  useGetWeatherByCityQuery,
+  useGetWeatherByHoursAndDailyQuery,
+} from "./services/weatherApi";
+import { LineChart } from "./components/LineChart";
+import Menu from "./components/Menu";
 
 function App() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [city, setCity] = useState("Bishkek");
+  const { data, isSuccess, isError, isFetching } =
+    useGetWeatherByCityQuery(city);
+  const condition = data?.weather[0].main;
+  useEffect(() => {
+    if (!isFetching) {
+      if (isSuccess) {
+        setIsSearchOpen(false);
+      } else {
+        setIsSearchOpen(true);
+        setCity("");
+      }
+    }
+  }, [isSuccess, isError, isFetching]);
+  console.log(condition);
+  // const { data: hourlyData } = useGetWeatherByHoursAndDailyQuery(data);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <WeatherInfo data={data} setIsSearchOpen={setIsSearchOpen} />
+        <SearchModal
+          isCityFound={isSuccess}
+          setCity={setCity}
+          setIsSearchOpen={setIsSearchOpen}
+          isSearchOpen={isSearchOpen}
+        />
+        <Menu />
+        {/* <LineChart hourlyData={hourlyData} /> */}
+      </div>
     </div>
   );
 }

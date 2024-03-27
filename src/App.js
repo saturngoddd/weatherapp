@@ -37,8 +37,10 @@ function App() {
           setIsSearchOpen={setIsSearchOpen}
           isSearchOpen={isSearchOpen}
         />
-        <Menu />
-        {/* <LineChart hourlyData={hourlyData} /> */}
+        <div className="flex">
+          <Menu />
+          {/* <LineChart hourlyData={hourlyData} /> */}
+        </div>
       </div>
     </div>
   );

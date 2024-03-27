@@ -1,5 +1,23 @@
 .menu {
-  width: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 99px;
+  padding: 20px 0;
+  width: 105px;
   background: #deab4d;
   border-radius: 40px;
+}
+.menu-content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.menu-avatar {
+  margin: 0 auto;
+}
+.menu-icon {
+  margin: 0 auto;
+}
+.menu-weather-text {
+  text-align: center;
 }

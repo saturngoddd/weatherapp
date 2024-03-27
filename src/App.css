@@ -10,3 +10,7 @@ body {
   max-width: 1358px;
   margin: 0 auto;
 }
+.flex {
+  margin-top: 24px;
+  display: flex;
+}

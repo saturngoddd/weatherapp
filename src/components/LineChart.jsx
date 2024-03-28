@@ -38,7 +38,7 @@ export const LineChart = ({ hourlyData }) => {
   const tempData = hourlyData?.hourly
     ?.map((item, index) => {
       if (index % 2 === 0) {
-        windSpeed.push(`${item.wind_speed}km/h`);
+        windSpeed.push(`${Math.floor(item.wind_speed * 3.6)}km/h`);
         const img = new Image();
         img.src =
           "https://openweathermap.org/img/wn/" + item.weather[0].icon + ".png";
@@ -71,6 +71,7 @@ export const LineChart = ({ hourlyData }) => {
     ],
   };
   const options = {
+    maintainAspectRatio: false,
     layout: {
       padding: {
         left: 30,
@@ -189,19 +190,14 @@ export const LineChart = ({ hourlyData }) => {
   return (
     <div
       style={{
-        height: "30%",
+        margin: "0 auto",
+        height: "293px",
         background: "#DEAB4D",
-        width: "60%",
+        width: "80%",
         borderRadius: "40px",
       }}
     >
-      <Line
-        data={data}
-        width={1150}
-        height={480}
-        options={options}
-        plugins={plugins}
-      ></Line>
+      <Line data={data} options={options} plugins={plugins}></Line>
     </div>
   );
 };

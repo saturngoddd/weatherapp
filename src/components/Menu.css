@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 99px;
   padding: 20px 0;
-  width: 10%;
+  width: 18%;
   background: #deab4d;
   border-radius: 40px;
 }
@@ -23,10 +23,14 @@
 .menu-weather-text {
   text-align: center;
 }
-
-@media (max-width: 1100px) {
+@media (max-width: 1353px) {
   .menu {
-    width: 8%;
+    width: 11%;
+  }
+}
+@media (max-width: 1261px) {
+  .menu {
+    display: none;
   }
 }
 @media (max-width: 1000px) {
